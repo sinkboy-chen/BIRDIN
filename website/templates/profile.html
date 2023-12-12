@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header secondary-bg text-white">
+                    <h5 class="mb-0">User Profile</h5>
+                </div>
+                <div class="card-body primary-bg">
+                    <h3 class="pt-2 pb-4 text-center font-weight-bold" style="margin-bottom: 0;">
+                        {{ user.username }}
+                    </h3>
+
+                    {% if user.show_student_id %}
+                    <div class="mb-3">
+                        <strong>Student id:</strong>
+                        <br>
+                        {{ user.email.split("@")[0].upper() }}
+                    </div>
+                    {% endif %}
+
+                    <div class="mb-3">
+                        <strong>Collections: </strong>
+                        <br>
+                        <ul class="image-gallery">
+                            {% for relationship in user.all_owned_species %}
+                            {% if relationship.relationship_type==1 %}
+                            <li>
+                                <a class="custom-link" href="/species_detail/{{ relationship.species.name }}"
+                                    title="{{ relationship.species.name.split('_')[0] }}">
+                                    <img src="{{ img_url[relationship.species.name.split('_')[0]] }}" width="75"
+                                        height="75">
+                                </a>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="mb-3">
+                        <strong>Gathered species:</strong>
+                        <br>
+                        <ul class="list-group list-group-flush mt-3" id="gathered_list">
+                            {% for relationship in user.all_owned_species %}
+                            <li class="list-group-item">
+                                <div class="pb-1" style="text-align: center;">
+                                    <h3
+                                        style="font-family: 'Your Scientific Font'; font-style: italic; font-size: 24px; font-weight: bold; margin-bottom: 0;">
+                                        <a href="/species_detail/{{ relationship.species.name }}">{{
+                                            relationship.species.name.split("_")[0] }}</a>
+                                    </h3>
+                                </div>
+
+                                <div>
+                                    {% if relationship.species.nickname!=None %}
+                                    <div style="text-align: center;">
+                                        <a style="text-align: center;">
+                                            {{ relationship.species.nickname }}
+                                        </a>
+                                        <div style="text-align: right;">
+                                            <a  style="font-size: 0.8em">by </a>
+                                            <a href="/profile/{{ relationship.species.named_by.uuid }}"
+                                                class="text-muted" style="font-size: 0.8em">{{
+                                                relationship.species.named_by.username }}</a>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="mb-3">
+                        <strong>Naming history:</strong>
+                        <br>
+                        <ul class="list-group list-group-flush mt-3" id="gathered_list">
+                            {% for nickname_history in user.get_naming_history() %}
+                            <li class="list-group-item">
+                                named 
+                                <a class="text-muted" href="/species_detail/{{ nickname_history.species.name }}">{{ nickname_history.species.name.split("_")[0] }}</a>
+                                <a>
+                                    '{{ nickname_history.nickname }}'
+                                </a>
+                                <br>
+
+                                    <a style="font-size: 0.8em; align-content: end;">{{ nickname_history.timestamp.strftime('%Y-%m-%d %H:%M') }}</a>
+
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <!-- Add other user information as needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

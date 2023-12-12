@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block
+content%}
+<form method="POST">
+  <br />
+  <h3 align="center">Login</h3>
+  <div class="form-group">
+    <label for="email">School Email Address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="Enter xxx@(xxx.)ntu.edu.tw"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      name="password"
+      placeholder="Enter password"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Login</button>
+
+  <a href="/signup" style="padding-left: 1%; font-weight: bold;">sign up with NTU email</a>
+</form>
+{% endblock %}

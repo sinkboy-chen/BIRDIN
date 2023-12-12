@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Signup{% endblock %}
+
+{% block content%}
+<form method="POST">
+  <br>
+  <h3 align="center">Sign Up</h3>
+  <div class="form-group">
+    <label for="email">School Email Address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="xxx@(xxx.)ntu.edu.tw"
+    />
+  </div>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      name="username"
+      placeholder="at least 2 characters"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password1">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password1"
+      name="password1"
+      placeholder="at least 4 characters"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password2">Password (Confirm)</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password2"
+      name="password2"
+      placeholder="Confirm password"
+    />
+  </div>
+  <div>
+    
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <label for="checkbox" style="padding-left: 1%;">show student id on leaderboard: </label>
+  <input type="checkbox" id="show_student_id" name="show_student_id" checked>
+</form>
+{% endblock %}

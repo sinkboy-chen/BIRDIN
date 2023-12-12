@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}Species{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header secondary-bg text-white">
+                    <h5 class="mb-0">Species Detail</h5>
+                </div>
+
+                <div class="card-body primary-bg">
+                    {% if species.nickname==None %}
+                    <h3 class="pt-2 pb-4 text-center font-italic font-weight-bold"
+                        style="font-family: 'Your Scientific Font'; margin-bottom: 0;">
+                        {{ species.name.split("_")[0] }}
+                    </h3>
+                    {% else %}
+                    <h3 class="pt-2 pb-4 text-center font-weight-bold" style="margin-bottom: 0;">
+                        {{ species.nickname }}
+                    </h3>
+
+                    <div class="mb-3">
+                        <strong>Scientific name:</strong>
+                        <br>
+                        {{ species.name.split("_")[0] }}
+                    </div>
+                    {% endif %}
+
+                    <div class="mb-3">
+                        <strong>Common name:</strong>
+                        <br>
+                        {{ species.name.split("_")[1] }}
+                    </div>
+
+                    <div class="mb-3">
+                        <strong>Nickname:</strong>
+                        <br>
+                        {{ species.nickname }}.
+                        <a href="#" class="text-muted" style="font-size: 0.8em"
+                            onclick="assignNickname('{{ species.name }}', '{{ species.change_nickname_cycle + 10 }}')">Assign
+                            a new one for ${{ species.change_nickname_cycle + 10 }}?</a>
+                    </div>
+
+                    <div class="mb-3">
+                        <strong>Collection: </strong>
+                        <br>
+                        {% set relationship =
+                        UserSpecies.query.filter_by(user_id=user.id, species_id=species.id).first()
+                        %}
+
+                        {% if species.collection_status==True %}
+                        <img src={{ img_url[species.name.split('_')[0]] }} alt="Collection Image" width="75" height="75"
+                            style="margin-top: 5px;">
+                        <br>
+                        {% endif %}
+
+                        {% if species.collection_status==False %}
+                        Not available.
+                        {% elif not relationship %}
+                        Collect the sound of this species first to unlock collection.
+                        {% elif not relationship.relationship_type %}
+                        Available.
+                        <a href="#" class="text-muted" style="font-size: 0.8em"
+                            onclick="buyCollection('{{ species.name }}')">Buy it with $20?</a>
+                        {% else %}
+                        Owned.
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <strong>Nickname history:</strong>
+                        <br>
+                        <ul class="list-group list-group-flush mt-3" id="gathered_list">
+                            {% for nickname_history in species.get_nickname_history() %}
+                            <li class="list-group-item">
+                                <a class="text-muted" href="/profile/{{ nickname_history.user.uuid }}">{{
+                                    nickname_history.user.username }}</a>
+                                <a>
+                                    named it '{{ nickname_history.nickname }}' for ${{ nickname_history.cost }}
+                                </a>
+                                <br>
+                                <div>
+                                    <div style="width: 80%; float:left">
+                                        <a style="font-size: 0.8em">on {{ nickname_history.timestamp.strftime('%Y-%m-%d
+                                            %H:%M') }}</a>
+                                    </div>
+
+                                    <div style="width: 20%; float:right">
+                                        <button id="likeButton">Like</button>
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

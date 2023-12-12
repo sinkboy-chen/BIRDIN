@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content%}
+<div id="controls" class="button-container">
+    <button id="recordButton" class="special-button secondary-button">Record</button>
+    <button id="stopButton" class="special-button secondary-button" disabled>Stop</button>
+    <button id="analyzeButton" class="special-button secondary-button" disabled>Analyze</button>
+</div>
+
+<div class="mt-4 mb-4">
+    <h5>Recording</h5>
+    <ol id="recordingsList" class="list-group"></ol>
+</div>
+
+<div class="mt-4 mb-4">
+    <h5>Log</h5>
+    <pre id="log" class="border p-3" style="font-size: 16px;"></pre>
+</div>
+
+<!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+<script src="{{ url_for('static', filename='/audio_js/WebAudioRecorder.min.js') }}"></script>
+<script src="{{ url_for('static', filename='/audio_js/recording.js') }}"></script>
+
+{% endblock %}

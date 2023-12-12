@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header secondary-bg text-white">
+                    <h5 class="mb-0">About</h5>
+                </div>
+
+                <div class="p-3">
+                    <p>This web application serves as a demonstration of the BIRDIN project.</p>
+                    <br>
+                    <h4 id="objectives-">Objectives:</h4>
+                    <p>The aim of this initiative is to facilitate interaction between individuals at NTU and the
+                        environment, thereby promoting observation, understanding, and preservation of the campus.</p>
+                    <br>
+                    <h4 id="abstract-">Abstract:</h4>
+                    <p>Users are encouraged to collect audio recordings of bird species within the campus. This
+                        initiative
+                        prompts users to attentively listen to the sounds within the campus, fostering an understanding
+                        of
+                        the diverse environmental and ecological aspects across various corners of the campus.</p>
+                    <br>
+                    <h4 id="case-studies-and-methods-">Case Studies and Methods:</h4>
+                    <ol>
+                        <li>
+                            <p>eBird (<a href="https://ebird.org/home">https://ebird.org/home</a>):
+                                This website allows users to upload recorded observations of bird species, with a
+                                substantial community contributing numerous records (as of December 11, 2023, there are
+                                over
+                                5300 records for NTU Main Campus). However, the user base tends to lean towards
+                                scholars, as
+                                detailed observation records and bird identification are prerequisites.</p>
+                        </li>
+                        <li>
+                            <p>BirdNET(<a href="https://birdnet.cornell.edu">https://birdnet.cornell.edu</a>):
+                                This project enables users to identify bird sounds using its trained AI. However, there
+                                have
+                                been less than 10 uploads in the past 24 hours.</p>
+                        </li>
+                    </ol>
+                    <p>In light of these considerations, we propose the BIRDIN project, utilizing AI for bird sound
+                        recognition while incorporating interactive gaming features. This approach removes the necessity
+                        for
+                        a background in biology, making it accessible to the general public. Simultaneously, the allure
+                        of
+                        community gaming is leveraged to engage users in understanding and appreciating the environment.
+                    </p>
+                    <br>
+                    <h4 id="features-">Features:</h4>
+                    <p>We strive to provide maximum enjoyment without disconnecting from environmental interaction. Our
+                        main
+                        features include:</p>
+                    <ol>
+                        <li>Collections: Users can collect bird guides, encouraging exploration of
+                            various
+                            corners of the campus.</li>
+                        <li>Nicknaming and Voting: Users can suggest names for various bird species, and the most
+                            popular
+                            name will become the adopted way to refer to that bird.</li>
+                    </ol>
+                    <br>
+                    <h4 id="disclaimer-">Disclaimer:</h4>
+                    <p>To ensure fairness in the game, we will cross-reference data with GPS, month, time, weather, and
+                        the
+                        database to verify the authenticity of the recorded sounds. The initial comparison data will be
+                        collected in this demo.</p>
+                    
+                    <br>
+                    <h4 id="tools-used-">Tools Used:</h4>
+                    <ol>
+                        <li><a href="https://github.com/kahst/BirdNET-Analyzer#setup-birdnetlib">BirdNET-Analyzer</a>
+                        </li>
+                        <li><a href="https://vercel.com/">Vercel</a></li>
+                        <li><a href="https://console.cloudinary.com/">Cloudinary</a></li>
+                        <li><a href="https://wslab.csie.ntu.edu.tw/">CSIE WSLab</a></li>
+                    </ol>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

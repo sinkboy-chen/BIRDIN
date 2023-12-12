@@ -1,0 +1,156 @@
+/* Base Button Styles */
+.special-button {
+  flex-grow: 1;
+  height: 3rem;
+  min-width: 10rem;
+  border: none;
+  border-radius: 0.15rem;
+  margin-left: 2px;
+  box-shadow: inset 0 -0.15rem 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Disabled Button Styles */
+button:disabled {
+  background: #e0e0e0;
+  /* Light Gray for disabled state */
+  cursor: not-allowed;
+  color: #888;
+  /* Dark Gray for disabled text */
+  box-shadow: none;
+}
+
+/* Container for Horizontal Layout */
+.button-container {
+  display: flex;
+  gap: 10px;
+  /* Adjust the space between buttons */
+  margin-top: 20px;
+  /* Add space on top */
+}
+
+/* Media query for smaller screens (adjust the breakpoint as needed) */
+@media (max-width: 768px) {
+  .button-container {
+      flex-direction: column; /* Stack buttons vertically on smaller screens */
+      align-items: stretch; /* Stretch buttons to full width */
+  }
+  
+  .special-button {
+      margin-left: 0; /* Remove margin between buttons on smaller screens */
+  }
+}
+
+/* Hide the ol numbers */
+#recordingsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Hide the audio file link */
+#recordingsList li a {
+  display: none;
+}
+
+/* Show only the player */
+#recordingsList li audio {
+  display: block;
+}
+
+/* Add this CSS code to your stylesheet */
+.alert {
+  /* Your existing alert styles go here */
+
+  /* Add the following to change the background color to off-white */
+  background-color: #705b4f32; /* White color */
+  border-radius: 0; /* Remove round edges */
+}
+
+
+/* Primary Button Color */
+.primary-button {
+  background: #607d8b;
+  /* Slate Gray */
+}
+
+/* Secondary Button Color */
+.secondary-button {
+  background: #705b4f;
+  /* Brownish Gray */
+}
+
+.primary-bg {
+  background: #f8f9fa;
+}
+
+.secondary-bg {
+  background: #705b4f;
+  /* Brownish Gray */
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #21130b !important; /* Replace "yourColorCode" with the desired color code */
+}
+
+h3 a {
+  color: #21130b;
+  /* Text color for unvisited links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+  /* Smooth transition for color change */
+}
+
+h3 a:hover {
+  color: #543d33;
+  /* Slightly darker or lighter color for hover */
+  text-decoration: underline;
+  /* Underline on hover */
+}
+
+#log {
+  margin-top: 0;    /* Remove top margin */
+  padding-top: 0;   /* Remove top padding */
+}
+
+a:hover img {
+  opacity: 0.6;
+}
+
+.custom-link, .custom-link:hover {
+  text-decoration: none;
+  outline: none;
+} 
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  gap: 10px;
+  padding: 0px !important;
+  padding-top: 5px !important;
+  font-size: 0px;
+}
+
+.image-gallery li {
+  max-width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  list-style-type: none;
+}
+
+.image-gallery li img {
+  max-width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+
+
