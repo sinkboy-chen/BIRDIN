@@ -2,6 +2,7 @@
 
 This web application serves as a demonstration of the BIRDIN project.
 The api part is in [https://github.com/sinkboy-chen/BIRDIN-api](https://github.com/sinkboy-chen/BIRDIN-api).
+live demo: [https://birdin-demo.vercel.app/](https://birdin-demo.vercel.app/)
 
 #### Objectives:
 
