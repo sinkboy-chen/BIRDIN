@@ -5,6 +5,8 @@ The api part is in [https://github.com/sinkboy-chen/BIRDIN-api](https://github.c
 
 live demo: [https://birdin-demo.vercel.app/](https://birdin-demo.vercel.app/) (the analyze part is no longer serving)
 
+detailed article: [https://appliedmusanth.wordpress.com/2023/12/12/group-6-birdin-project/](https://appliedmusanth.wordpress.com/2023/12/12/group-6-birdin-project/)
+
 #### Objectives:
 
 The aim of this initiative is to facilitate interaction between individuals at NTU and the environment, thereby promoting observation, understanding, and preservation of the campus.
